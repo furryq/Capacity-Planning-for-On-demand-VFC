@@ -35,25 +35,23 @@ The aim of ODCP is to maximize the profit of the service provider and the qualit
 We generate the road network in Helsinki according to the HERE map (Fig. 2). Based on the road network, the traffic dataset is generated using the Simulation of Urban MObility (SUMO). We generate the microscopic traffic flow (i.e., the location of each user in each ST) following the approach of activity-based demand generation, which creates the trips of the individual vehicles based on the description of the city population. The necessary SUMO files are in the root directory. Particularly, the city description can be checked from here.stat.xml, and the SUMO configuration file is here.sumocfg. Then, we use batch_sumo_traces_10d.ipynb to generate the vehicular traces in 10 days, where we use 9 days to train and the last day to test. 
 
 ![segments](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/7498061d-2551-466f-88ed-e809102fc509)
+
 Fig. 2: Road network in Helsinki.
 
 The code consists of three packages, namely here_steady, here_seasonal, and here_occassion. They are corresponding to three traffic models:
 
 • Stationary Traffic Model (STM): The traffic pattern remains unchanged during the ten days.
 
-• Traffic Model with a Seasonal Change (TM-SC): There is a gradual change in the distribution of the working hours (cf. Figs. 3a-3c) due to a more flexible schedule, such as the hybrid working schedule during the pandemic period.
+• Traffic Model with a Seasonal Change (TM-SC): There is a gradual change in the distribution of the working hours (cf. Fig. 2) due to a more flexible schedule, such as the hybrid working schedule during the pandemic period.
 
 • Traffic Model with an Occasional Event (TM-OE): There is a sudden change in the demand magnitude (i.e., the total number of users doubled from 5000 to 10000) over
 the last four days due to an occasional event, such as an international football match.
-![steady](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/c6b22469-c18d-4070-a2d5-5e43e54f9d8e)
-![seasonal](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/9482611e-fd69-4737-94fd-d69a9466cf16)
-![occasional](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/5a75c88b-3a56-4127-886d-1a61181759b0)
-Fig. 2: Three traffic models in ODVFC.
 
 ![working_hour_1](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/ce808c3f-5e61-4ce1-9973-a6e20ccb79fe)
 ![working_hour_2](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/a4ee8cef-7444-42ad-a87b-cdb561c88100)
 ![working_hour_3](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/2e06d492-4c32-4e93-b367-aaa806bc03c1)
-Fig. 3: Working time transition in TM-SC.
+
+Fig. 2: Working time transition in TM-SC.
 
 Due to the uncertainty in traffic flow, the traffic flow prediction cannot always be accurate. The impacts of traffic flow prediction accuracy on capacity planning are analyzed through the following scenarios:
 
@@ -85,6 +83,9 @@ You can use papermill.ipynb for batch-running the simulations.
 
 # Simulator
 To evaluate the capacity plan in a finer granularity, we proposed a vehicular fog computing (VFC) simulator, referred to as VFogSim.
+
+![Architecture](https://github.com/furryq/Capacity-Planning-for-On-demand-VFC/assets/61701502/f6be0e2b-f1a2-48f0-be10-458693b6a679)
+Fig. 3: The VFogSim simulator.
 
 If you want to use the simulator, you can cite us by:
 
