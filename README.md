@@ -69,16 +69,14 @@ capacity_planning_old - TR-NF
 capacity_planning_all - VR
 capacity_planning_random - RG
 
-For the results, cp.profit_list and cp.service_rate_list shows the profits and service rates in 24 hours, respectively. cp.times_cs and cp.times_rg_block shows the execution time for global and regional planning, repesctively.
-You can use papermill.ipynb for batch running the simulations.
-
-There is another package called here_region, where we find the impacts of number of regions. In other simulations, we divide the road network into 20 regions. If you want to change the number of regions, please change the clusters file, connectivity file (C_list), distance file (D_list), centroid file (cen_list) correspondingly.
+For the results, cp.profit_list and cp.service_rate_list show the profits and service rates in 24 hours, respectively. cp.times_cs and cp.times_rg_block show the execution time for global and regional planning, respectively.
+You can use papermill.ipynb for batch-running the simulations.
 
 
 # Simulator
 To evaluate the capacity plan in a finer granularity, we proposed a vehicular fog computing (VFC) simulator, referred to as VFogSim.
 
-If you wnt to use the simulator, you can cite us by:
+If you want to use the simulator, you can cite us by:
 
 U. Akgul, W. Mao, B. Cho, and Y. Xiao, "VFogSim: A Data-driven Platform for Simulating Vehicular Fog Computing Environment," IEEE Systems Journal (accepted for publication). 2023.  
 
