@@ -43,7 +43,7 @@ the last four days due to an occasional event, such as an international football
 
 We generate the road network in Helsinki according to HERE map. Based on the road network, the traffic dataset is generated using Simulation of Urban MObility
 (SUMO). We generate the microscopic traffic flow (i.e., the location of each user in each ST) following the approach of activity-based demand generation, which creates the trips of the individual vehicles based on the description of the city population. 
-The city description can be checked from here.stat.xml. The SUMO configuration file is here.sumocfg. We then use batch_sumo_traces_10d.ipynb to generate the vehicular traces in 10 days, where we use 9 days to train and the last day to test. 
+The city description can be checked from here.stat.xml. We use batch_sumo_traces_10d.ipynb to generate the vehicular traces in 10 days, where we use 9 days to train and the last day to test. 
 
 Due to the uncertainty in traffic flow, the traffic flow prediction cannot always be accurate. The impacts of traffic flow prediction accuracy on capacity planning are analyzed through the following scenarios:
 
