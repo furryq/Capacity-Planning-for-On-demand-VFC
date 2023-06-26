@@ -1,6 +1,8 @@
 # Capacity-Planning-for-On-demand-VFC
 
-This is the code for On-demand Vehicular Fog Computing for Beyond 5G Networks. You can cite us by:
+This is the code for On-demand Vehicular Fog Computing for Beyond 5G Networks. 
+
+If you are interested in this work, you can cite us by:
 
 W. Mao, O.U.Akgul, B. Cho, Y. Xiao, and A. Ylä-Jääski, “On-demand Vehicular Fog Computing for Beyond 5G Networks”, IEEE Transactions on Vehicular Technology (accepted for publication). 2023.
 
@@ -29,10 +31,54 @@ During regional planning, we decide the task allocation and regional routing str
 The aim of ODCP is to maximize the profit of the service provider and the quality of service (QoS) received by the users. We follow a data-driven methodology to implement capacity planning in ODVFC. The flowchart of ODCP is presented in Fig. 1c, where the demand and supply are modeled separately. 
 
 # Code
-The code consists of xx parts. 
+
+The code consists of three packages, namely here_steady, here_seasonal, and here_occassion. They are corresponding to three traffic models:
+
+• Stationary Traffic Model (STM): The traffic pattern remains unchanged during the ten days.
+
+• Traffic Model with a Seasonal Change (TM-SC): There is a gradual change in the distribution of the working hours (cf. Figs. 3a-3c) due to a more flexible schedule, such as the hybrid working schedule during the pandemic period.
+
+• Traffic Model with an Occasional Event (TM-OE): There is a sudden change in the demand magnitude (i.e., the total number of users doubled from 5000 to 10000) over
+the last four days due to an occasional event, such as an international football match.
+
+We generate the road network in Helsinki according to HERE map. Based on the road network, the traffic dataset is generated using Simulation of Urban MObility
+(SUMO). We generate the microscopic traffic flow (i.e., the location of each user in each ST) following the approach of activity-based demand generation, which creates the trips of the individual vehicles based on the description of the city population. 
+The city description can be checked from here.stat.xml. The SUMO configuration file is here.sumocfg. We then use batch_sumo_traces_10d.ipynb to generate the vehicular traces in 10 days, where we use 9 days to train and the last day to test. 
+
+Due to the uncertainty in traffic flow, the traffic flow prediction cannot always be accurate. The impacts of traffic flow prediction accuracy on capacity planning are analyzed through the following scenarios:
+
+• ODCP with Accurate Traffic (AT): Assume that the traffic flow prediction is 100% accurate and use the proposed model for capacity planning.
+
+• ODCP with Traffic Prediction With Feedback (TP-WF): Predict traffic flow using SARIMA, which takes the prediction errors in the previous time slot as feedback
+and uses the proposed model for capacity planning.
+
+• ODCP with Traffic Regression with No Feedback (TR-NF): Estimate the traffic flow based on Gaussian process regression from the historical data and use the proposed model for capacity planning.
+
+TP-WF is our proposal, AT is the baseline, and TR-NF is used for comparison.
+
+We also compare ODCP with the following strategies presented in the literature:
+
+• Vehicle Routing method (VR): Formulate the planning problem as VRPTW [13] and solve it using ILP.
+
+• Randomly Go and serve (RG): The VFNs randomly travel among the regions and serve the demand that is within the same region (i.e., a naive approach).
+
+The association between the codes and scenarios are:
+capacity_planning_best - AT
+capacity_planning_pre - TP-WF
+capacity_planning_old - TR-NF
+capacity_planning_all - VR
+capacity_planning_random - RG
+
+For the results, cp.profit_list and cp.service_rate_list shows the profits and service rates in 24 hours, respectively. cp.times_cs and cp.times_rg_block shows the execution time for global and regional planning, repesctively.
+You can use papermill.ipynb for batch running the simulations.
+
+There is another package called here_region, where we find the impacts of number of regions. In other simulations, we divide the road network into 20 regions. If you want to change the number of regions, please change the clusters file, connectivity file (C_list), distance file (D_list), centroid file (cen_list) correspondingly.
+
 
 # Simulator
-To evaluate the proposed capacity plan, we proposed a vehicular fog computing (VFC) simulator, referred to as VFogSim. You can cite us by:
+To evaluate the capacity plan in a finer granularity, we proposed a vehicular fog computing (VFC) simulator, referred to as VFogSim.
+
+If you wnt to use the simulator, you can cite us by:
 
 U. Akgul, W. Mao, B. Cho, and Y. Xiao, "VFogSim: A Data-driven Platform for Simulating Vehicular Fog Computing Environment," IEEE Systems Journal (accepted for publication). 2023.  
 
