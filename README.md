@@ -4,9 +4,7 @@ This is the code for On-demand Vehicular Fog Computing for Beyond 5G Networks.
 
 If you are interested in this work, you can cite us by:
 
-W. Mao, O.U.Akgul, B. Cho, Y. Xiao, and A. Ylä-Jääski, “On-demand Vehicular Fog Computing for Beyond 5G Networks”, IEEE Transactions on Vehicular Technology (accepted for publication). 2023.
-
-Pre-print version: https://www.techrxiv.org/articles/preprint/On-demand_Vehicular_Fog_Computing_for_Beyond_5G_Networks/19794472/1
+W. Mao, O. U. Akgul, B. Cho, Y. Xiao and A. Ylä-Jääski, "On-demand Vehicular Fog Computing for Beyond 5G Networks," in IEEE Transactions on Vehicular Technology, doi: 10.1109/TVT.2023.3289862.
 
 
 # Senario
