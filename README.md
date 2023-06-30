@@ -87,9 +87,8 @@ Fig. 3: The VFogSim simulator.
 
 If you want to use the simulator, you can cite us by:
 
-U. Akgul, W. Mao, B. Cho, and Y. Xiao, "VFogSim: A Data-driven Platform for Simulating Vehicular Fog Computing Environment," IEEE Systems Journal (accepted for publication). 2023.  
+Ö. U. Akgül, W. Mao, B. Cho and Y. Xiao, "VFogSim: A Data-Driven Platform for Simulating Vehicular Fog Computing Environment," in IEEE Systems Journal, doi: 10.1109/JSYST.2023.3286329. 
 
 Link to the simulator: https://mobilecloud.aalto.fi/?page_id=1441 (There are both Matlab and OMNeT++ versions, the future version will be combined with Ray RLlib)
 
-Preprint version: https://www.techrxiv.org/articles/preprint/A_Data-driven_Platform_for_Simulating_Vehicular_Fog_Computing_Environment/17829398/2
 
